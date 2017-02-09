@@ -150,12 +150,24 @@ class GameSpace:
 	def inbounds(self,car,lst):
 		if car.rect[0] >= -100 and car.rect[0] <= 650:
 			lst.append(car)	
-		
+	
+	def outofbounds(self):
+		if self.player.rect[0] < -5 and self.player.rect[0] > 650:
+			self.player.rect = self.player.image.get_rect()
+			self.player.rect = self.player.rect.move(320,500)
+			self.lives = self.lives -1
+			self.lives_list.pop()
+
 	def main(self):
 		pygame.init()
+
+		#screen size and background
 		self.size = self.width, self.height = 640,640
 		self.bg = pygame.image.load("Sprites/background.png")
 		self.black = 0,0,0
+
+		#initialize text
+		self.font = pygame.font.SysFont("monospace",25)
 
 		#variables for object generation
 		self.object_list = []
@@ -265,6 +277,11 @@ class GameSpace:
 					self.player.rect = self.player.image.get_rect()
 					self.player.rect = self.player.rect.move(320,580)
 
+			#Checks if frogger is out of bounds
+			self.outofbounds()
+
+			#Checks if lives are gone
+
 			#clearing the off screen cars
 			self.car_list = self.temp_car
 			self.temp_car = []
@@ -290,6 +307,10 @@ class GameSpace:
 				self.screen.blit(life.image,life.rect)
 
 			self.screen.blit(self.player.image, self.player.rect)
+
+			#displaying text
+			score = self.font.render("SCORE: 0",1,(0,0,0))
+			self.screen.blit(score,(0, 600))
 
 			pygame.display.flip()
 
