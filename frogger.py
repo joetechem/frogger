@@ -399,6 +399,9 @@ class GameSpace:
 				if self.player.rect[1] <=280:
 					self.player_float(obj)
 
+				if self.player2.rect[1] <=280:
+					self.player_float2(obj)
+
 			if self.player2.rect[1] <= 280 and self.player2.rect[1] > 50:
 				self.player_float2(obj)
 
@@ -410,12 +413,12 @@ class GameSpace:
 					self.player.rect = self.player.rect.move(320,590)
 
 			if self.player.rect[1] < 50:
-				self.score += 1
+				self.score1 += 1
 				self.player.rect = self.player.image.get_rect()
 				self.player.rect = self.player.rect.move(320,590)
 
 			if self.player2.rect[1] < 50:
-				self.score += 1
+				self.score2 += 1
 				self.player2.rect = self.player2.image.get_rect()
 				self.player2.rect = self.player2.rect.move(100,590)
 
