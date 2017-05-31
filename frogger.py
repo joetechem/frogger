@@ -230,26 +230,26 @@ class GameSpace:
 	############################################################
 	############	BEGIN PART TWO	############################
 
-	def game_screen(self):
-		pygame.init()
 
-		#screen size and background
-		self.size = self.width, self.height = 640,640
-		self.bg = pygame.image.load("Sprites/background.png")
-		self.go = pygame.image.load("Sprites/gameover.png")
-		self.black = 0,0,0
 
-		#initialize text
-		self.font = pygame.font.SysFont("monospace",25)
 
-		#variables for object generation
-		self.object_list = []
-		self.temp_object = []
 
-		#variables for car generation
-		self.counter = 0
-		self.car_list = []
-		self.temp_car = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 	############################################################
 	############	END PART TWO	############################
