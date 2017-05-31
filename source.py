@@ -1,9 +1,9 @@
 ############################################################
 ############	BEGIN PART ONE	############################
 
-
-
-
+import pygame,math,sys,os
+from pygame.locals import *
+from random import randint
 
 ############################################################
 ############	END PART ONE	############################
@@ -251,13 +251,13 @@ class GameSpace:
 	############################################################
 	############	BEGIN PART TWO	############################
 
-
-
+	def frog_start(self):
+		#creating lives image
 		
-
-
-
-
+		self.lives_list = []
+		self.lives_list.append(Lives(self,560))
+		self.lives_list.append(Lives(self,580))
+		self.lives_list.append(Lives(self,600))
 
 	############################################################
 	############	END PART TWO	############################
@@ -290,15 +290,15 @@ class GameSpace:
 	############################################################
 	############	BEGIN PART THREE	########################
 
+	def frog_restart(self):
 
+		self.lives = 3
 
-
-
-
-
-
-
-
+		#creating lives image
+		self.lives_list = []
+		self.lives_list.append(Lives(self,560))
+		self.lives_list.append(Lives(self,580))
+		self.lives_list.append(Lives(self,600))
 		
 	############################################################
 	############	END PART THREE	############################
@@ -321,11 +321,11 @@ class GameSpace:
 	############################################################
 	############	PART FOUR	################################
 
+	def main(self):
 
+		self.game_screen()
 
-
-
-
+		self.frog_start()
 
 	############################################################
 	############	END PART FOUR	############################
@@ -424,15 +424,15 @@ class GameSpace:
 			############################################################
 			############	BEGIN PART FIVE	############################
 
+			for car in self.car_list:
+				car.tick()
+				self.inbounds(car,self.temp_car)
+				self.player_hit(car)
+				self.player_hit2(car)
 
-
-
-
-
-
-
-
-
+			if self.lives == 0:
+				self.frog_restart()
+				continue
 				
 			############################################################
 			############	END PART FIVE	############################
