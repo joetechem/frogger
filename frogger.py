@@ -226,6 +226,9 @@ class GameSpace:
 			self.player.rect = self.player.rect.move(320,500)
 			self.lives = self.lives -1
 			self.lives_list.pop()
+			
+	############################################################
+	############	BEGIN PART TWO	############################
 
 	def game_screen(self):
 		pygame.init()
@@ -249,7 +252,12 @@ class GameSpace:
 		self.temp_car = []
 		
 	############################################################
-	############	BEGIN PART TWO	############################
+	############	END PART TWO	############################
+		
+		
+		
+	############################################################
+	############	BEGIN PART THREE	########################
 
 
 
@@ -260,7 +268,7 @@ class GameSpace:
 
 
 	############################################################
-	############	END PART TWO	############################
+	############	END PART THREE	############################
 		
 		#creating game objects
 		self.player = Player(self)
@@ -286,22 +294,17 @@ class GameSpace:
 			if event.type == KEYDOWN and event.key == K_n:
 				pygame.quit()
 				sys.exit()
-				
-	############################################################
-	############	BEGIN PART THREE	########################
 
 
+	def frog_restart(self):
 
+		self.lives = 3
 
-
-
-
-
-
-
-		
-	############################################################
-	############	END PART THREE	############################
+		#creating lives image
+		self.lives_list = []
+		self.lives_list.append(Lives(self,560))
+		self.lives_list.append(Lives(self,580))
+		self.lives_list.append(Lives(self,600))
 
 		self.pressed = {"up":False, "down":False, "right":False, "left":False,"w":False, "s":False, "d":False, "a":False}
 
